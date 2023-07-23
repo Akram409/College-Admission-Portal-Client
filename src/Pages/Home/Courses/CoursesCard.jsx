@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 
 const CoursesCard = ({ item }) => {
   const {
+    _id,
     collegeName,
     admissionDate,
     researchHistory,
@@ -9,6 +10,7 @@ const CoursesCard = ({ item }) => {
     title,
     events
   } = item;
+
   // const {
   //   collegeName,
   //   admissionDate,
@@ -39,7 +41,8 @@ const CoursesCard = ({ item }) => {
           <span className="text-lg">{researchHistory}</span>
         </div>
         <div className="card-actions justify-center pt-2">
-          <Link to=""><button className={"btn btn-primary text-white"}>View Details</button></Link>
+        
+          <Link to={`/coursedetail/${_id}`}><button className={"btn btn-primary text-white"}>View Details</button></Link>
         </div>
       </div>
     </div>
