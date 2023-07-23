@@ -7,14 +7,18 @@ import Colleges from "../Pages/Colleges/Colleges";
 import Admission from "../Pages/Admission/Admission";
 import MyCollege from "../Pages/MyCollege/MyCollege";
 import CourseDetails from "../Pages/Home/Courses/CourseDetailCard";
+import Profile from "../Pages/Profile/Profile";
+import Error from "../Pages/Shared/Error/Error";
 export const router = createBrowserRouter([
   {
     path: "/",
     element: <Main />,
+    // errorElement: <Error />,
     children: [
       {
         path: "/",
         element: <Home />,
+        // errorElement: <Error />,
       },
       {
         path: "/login",
@@ -33,12 +37,24 @@ export const router = createBrowserRouter([
         element: <Admission />,
       },
       {
+        path: "/admission/select/:id",
+        element: <Admission />,
+      },
+      {
         path: "/myCollege",
         element: <MyCollege />,
       },
       {
+        path: "/profile",
+        element: <Profile />,
+      },
+      {
         path: "/coursedetail/:id",
         element: <CourseDetails></CourseDetails>,
+      },
+      {
+        path: '/error',
+        element: <Error />
       },
     ],
   },

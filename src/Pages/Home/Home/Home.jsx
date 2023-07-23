@@ -2,6 +2,8 @@ import { Helmet } from "react-helmet-async";
 import Banner from "../Banner/Banner";
 import Courses from "../Courses/Courses";
 import Gallery from "../Gallery/Gallery";
+import Research from "../Research/Research";
+import ClientReview from "../Review/ClientReview";
 
 const Home = () => {
   return (
@@ -12,6 +14,8 @@ const Home = () => {
       <Banner />
       <Courses />
       <Gallery />
+      <Research />
+      <ClientReview />
     </div>
   );
 };

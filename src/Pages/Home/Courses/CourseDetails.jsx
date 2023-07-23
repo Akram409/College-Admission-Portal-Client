@@ -21,6 +21,7 @@ const CourseDetails = ({ item }) => {
     img,
     title,
     description,
+    sportsData
   } = item;
 
   return (
@@ -39,6 +40,7 @@ const CourseDetails = ({ item }) => {
             <h1 className="text-xl "><span className="font-bold">Admission Process: </span> {admissionProcess}</h1>
             <h1 className="text-xl"><span className="font-bold">Event-title: </span> {events}</h1>
             <h1 className="text-xl"><span className="font-bold">Event-Description: </span> {eventDetails}</h1>
+            <h1 className="text-xl"><span className="font-bold">Sports: </span> {sportsData}</h1>
             <h1 className="text-xl"><span className="font-bold">Total Research: </span> {researchWorkNumber}</h1>
             <h1 className="text-xl"><span className="font-bold">Research Work: </span> {researchWorks}</h1>
             <h1 className="text-xl"><span className="font-bold">Research History: </span> {researchHistory}</h1>

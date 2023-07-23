@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 
-const CoursesCard = ({ item }) => {
+const CollegesCard = ({ item }) => {
   const {
     _id,
     collegeName,
@@ -8,15 +8,17 @@ const CoursesCard = ({ item }) => {
     researchHistory,
     img,
     title,
-    events
+    events,
+    rating
   } = item;
   return (
-    <div className="card mx-3 bg-[#F0F7FF] shadow-2xl text-center">
+    <div className="card mx-3 mb-5 bg-[#F0F7FF] shadow-2xl text-center">
       <figure className="img-fluid w-full">
         <img src={img} className="w-full h-72" alt="Image Alt" />
       </figure>
       <div className="card-body mx-auto text-black ">
         <h2 className="text-3xl font-bold pb-1">{collegeName}</h2>
+        <h2 className="text-3xl font-bold pb-1">Rating: {rating}</h2>
         <h2 className="text-xl font-bold pb-1">Course Title: {title}</h2>
         <div className="flex gap-2 items-center justify-center">
           <span className="text-lg font-bold">Admission Date: {admissionDate}</span>
@@ -36,4 +38,4 @@ const CoursesCard = ({ item }) => {
   );
 };
 
-export default CoursesCard;
+export default CollegesCard;
