@@ -11,7 +11,7 @@ const Navbar = () => {
 
   return (
     <>
-      <div className="navbar fixed z-10 bg-opacity-70 px-5 py-5 font-bold">
+      <div className="navbar fixed z-10 bg-opacity-70 px-5 py-5 font-bold text-white">
         <div className="navbar-start">
           <div className="dropdown">
             <label tabIndex={0} className="btn btn-ghost md:hidden">
@@ -97,7 +97,7 @@ const Navbar = () => {
             </li>
             <li>
               <NavLink
-                to="/"
+                to="/colleges"
                 className={({ isActive }) => (isActive ? "active" : "default")}
               >
                 Colleges
@@ -105,7 +105,7 @@ const Navbar = () => {
             </li>
             <li>
               <NavLink
-                to="/"
+                to="/admission"
                 className={({ isActive }) => (isActive ? "active" : "default")}
               >
                 Admission
@@ -113,7 +113,7 @@ const Navbar = () => {
             </li>
             <li>
               <NavLink
-                to="/"
+                to="/myCollege"
                 className={({ isActive }) => (isActive ? "active" : "default")}
               >
                 My College
