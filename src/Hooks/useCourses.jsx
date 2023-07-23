@@ -1,14 +1,14 @@
 import { useQuery } from "@tanstack/react-query";
-import { AuthContext } from "../Providers/AuthProvider";
 import { useContext } from "react";
+import { AuthContext } from "../Providers/AuthProvider";
 
 const useCourses = () => {
-    const {loading} = useContext(AuthContext);
+    const {loading} = useContext(AuthContext)
     const {data: courses = [], isLoading: loadings, refetch} = useQuery({
         queryKey: ['courses'],
-        enabled: !loading && !!localStorage.getItem("access-token"),
+        // enabled: !loading && !!localStorage.getItem("access-token"),
         queryFn: async() => {
-            const res = await fetch('https://summer-camp-school-server-dusky.vercel.app/class');
+            const res = await fetch('http://localhost:5000/courses');
             return res.json();
         }
     })

@@ -1,32 +1,45 @@
-import { GiTeacher } from "react-icons/gi";
-import { MdEventSeat, MdOutlineAttachMoney } from "react-icons/md";
+import { Link } from "react-router-dom";
 
-
-const CoursesCard = ({ item,refetch }) => {
-    const { _id,name, image, instructorName, totalSeats, price ,enrolled} = item;
+const CoursesCard = ({ item }) => {
+  const {
+    collegeName,
+    admissionDate,
+    researchHistory,
+    img,
+    title,
+    events
+  } = item;
+  // const {
+  //   collegeName,
+  //   admissionDate,
+  //   events,
+  //   researchHistory,
+  //   sportsData,
+  //   category,
+  //   img,
+  //   title,
+  //   description,
+  //   link,
+  // } = item;
   return (
-    <div className="card max-h-fit mx-3 bg-[#13182a] shadow-2xl text-center">
+    <div className="card mx-3 bg-[#F0F7FF] shadow-2xl text-center">
       <figure className="img-fluid w-full">
-        <img src={image} className="w-full h-72" alt="Image Alt" />
+        <img src={img} className="w-full h-72" alt="Image Alt" />
       </figure>
-      <div className="card-body mx-auto text-white ">
-        <h2 className="text-2xl font-bold pb-1">{name}</h2>
-        <div className="flex gap-2 items-center justify-start">
-          <GiTeacher size="2em" color="red" />
-          <span className="text-xl font-bold">{instructorName}</span>
+      <div className="card-body mx-auto text-black ">
+        <h2 className="text-3xl font-bold pb-1">{collegeName}</h2>
+        <h2 className="text-xl font-bold pb-1">Course Title: {title}</h2>
+        <div className="flex gap-2 items-center justify-center">
+          <span className="text-lg font-bold">Admission Date: {admissionDate}</span>
         </div>
-        <div className="flex gap-2 items-center justify-start">
-          <MdEventSeat size="2em" color="blue" />
-          <span className="text-xl font-bold">
-            Total Seats: {totalSeats - enrolled}
-          </span>
+        <div className="flex gap-2 items-center justify-center">
+          <span className="text-lg font-bold">Events: {events}</span>
         </div>
-        <div className="flex gap-2 items-center justify-start">
-          <MdOutlineAttachMoney size="2em" color="green" />
-          <span className="text-xl font-bold">Price: ${price}</span>
+        <div className="">
+          <span className="text-lg">{researchHistory}</span>
         </div>
         <div className="card-actions justify-center pt-2">
-          <button className={"btn btn-primary text-white"}>View Details</button>
+          <Link to=""><button className={"btn btn-primary text-white"}>View Details</button></Link>
         </div>
       </div>
     </div>
