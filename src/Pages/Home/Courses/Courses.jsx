@@ -11,7 +11,7 @@ const Courses = () => {
     Courses
   </h1>
   <div className="divider"></div>
-    <div className="mt-20 grid grid-cols-3">
+    <div className="mt-20 grid grid-cols-1 lg:grid-cols-3">
       {courses.map((item) => (
         <CoursesCard className="lg:gap-3" key={item._id} item={item} refetch={refetch}></CoursesCard>
       ))}

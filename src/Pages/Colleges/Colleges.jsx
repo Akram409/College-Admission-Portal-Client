@@ -9,7 +9,7 @@ const Colleges = () => {
         All Colleges
       </h1>
       <div className="divider"></div>
-      <div className="mt-20 grid grid-cols-3">
+      <div className="mt-20 grid grid-cols-1 lg:grid-cols-3">
         {allColleges.map((item) => (
           <CollegesCard
             className="lg:gap-3"

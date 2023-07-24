@@ -37,10 +37,40 @@ const Navbar = () => {
               <li>
                 <Link to="/">Home</Link>
               </li>
+              <li>
+                <NavLink
+                  to="/colleges"
+                  className={({ isActive }) =>
+                    isActive ? "active" : "default"
+                  }
+                >
+                  Colleges
+                </NavLink>
+              </li>
+              <li>
+                <NavLink
+                  to="/admission"
+                  className={({ isActive }) =>
+                    isActive ? "active" : "default"
+                  }
+                >
+                  Admission
+                </NavLink>
+              </li>
               {user ? (
                 <>
                   <li>
                     <Link to="/user">Profile</Link>
+                  </li>
+                  <li>
+                    <NavLink
+                      to="/myCollege"
+                      className={({ isActive }) =>
+                        isActive ? "active" : "default"
+                      }
+                    >
+                      My College
+                    </NavLink>
                   </li>
                   <li>
                     <Link className="text-xl" to="/" onClick={handleLogOut}>
@@ -75,11 +105,6 @@ const Navbar = () => {
             </ul>
           </div>
           <div className="flex items-center">
-            <div>
-              <Link to="/">
-                <img src="" alt="" />
-              </Link>
-            </div>
             <Link to="/">
               <a className="btn btn-ghost normal-case text-3xl">Academiz</a>
             </Link>
@@ -113,14 +138,16 @@ const Navbar = () => {
             </li>
             {user ? (
               <>
-              <li>
-              <NavLink
-                to="/myCollege"
-                className={({ isActive }) => (isActive ? "active" : "default")}
-              >
-                My College
-              </NavLink>
-            </li>
+                <li>
+                  <NavLink
+                    to="/myCollege"
+                    className={({ isActive }) =>
+                      isActive ? "active" : "default"
+                    }
+                  >
+                    My College
+                  </NavLink>
+                </li>
                 <li>
                   <Link to="/" onClick={handleLogOut}>
                     LogOut
@@ -182,17 +209,19 @@ const Navbar = () => {
                 tabIndex={0}
                 className="mt-3 p-2 shadow menu menu-compact dropdown-content bg-error rounded-box w-52"
               >
-                <li>
-                  <Link to="/user" className="justify-between">
-                    Profile
-                  </Link>
-                </li>
                 {user ? (
-                  <li>
-                    <NavLink to="/" onClick={handleLogOut}>
-                      LogOut
-                    </NavLink>
-                  </li>
+                  <>
+                    <li>
+                      <Link to="/user" className="justify-between">
+                        Profile
+                      </Link>
+                    </li>
+                    <li>
+                      <NavLink to="/" onClick={handleLogOut}>
+                        LogOut
+                      </NavLink>
+                    </li>
+                  </>
                 ) : (
                   <>
                     <li>
