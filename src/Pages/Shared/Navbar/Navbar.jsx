@@ -40,7 +40,7 @@ const Navbar = () => {
               {user ? (
                 <>
                   <li>
-                    <Link to="/">Dashboard</Link>
+                    <Link to="/user">Profile</Link>
                   </li>
                   <li>
                     <Link className="text-xl" to="/" onClick={handleLogOut}>
@@ -111,7 +111,9 @@ const Navbar = () => {
                 Admission
               </NavLink>
             </li>
-            <li>
+            {user ? (
+              <>
+              <li>
               <NavLink
                 to="/myCollege"
                 className={({ isActive }) => (isActive ? "active" : "default")}
@@ -119,18 +121,6 @@ const Navbar = () => {
                 My College
               </NavLink>
             </li>
-            {user ? (
-              <>
-                <li>
-                  <NavLink
-                    to="/"
-                    className={({ isActive }) =>
-                      isActive ? "active" : "default"
-                    }
-                  >
-                    Dashboard
-                  </NavLink>
-                </li>
                 <li>
                   <Link to="/" onClick={handleLogOut}>
                     LogOut
@@ -193,9 +183,9 @@ const Navbar = () => {
                 className="mt-3 p-2 shadow menu menu-compact dropdown-content bg-error rounded-box w-52"
               >
                 <li>
-                  <NavLink to="/" className="justify-between">
+                  <Link to="/user" className="justify-between">
                     Profile
-                  </NavLink>
+                  </Link>
                 </li>
                 {user ? (
                   <li>

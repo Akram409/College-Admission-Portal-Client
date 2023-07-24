@@ -6,15 +6,6 @@ import { useNavigation } from "react-router-dom";
 
 const MyCollege = () => {
     const [mycolleges, , refetch] = useMyCollege();
-    const {user,loading} = useContext(AuthContext);
-
-    const navigation = useNavigation();
-  
-    // if (navigation.state === "loading") {
-    //   return <progress className="progress w-56"></progress>;
-    // }
-
-    console.log(mycolleges)
     return (
         <div className="mt-10">
       <h1 className="text-5xl font-bold text-center mb-4 text-[#00425A]">

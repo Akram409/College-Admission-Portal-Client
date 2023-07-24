@@ -1,6 +1,23 @@
-import { Link } from "react-router-dom";
+import { useState } from "react";
+import Swal from "sweetalert2";
 
 const MyCollegeCard = ({ item }) => {
+    const [Review, setReview] = useState("");
+    const [Rating, setRating] = useState(0);
+
+    const handleChange = (event) => {
+      setReview(event.target.value);
+    };
+    const handleChangeRating = (event) => {
+        setRating(event.target.value);
+    };
+  
+    const handleClose = () => {
+      const modal = document.getElementById("my_modal_5");
+      if (modal) {
+        modal.close();
+      }
+    };
   const {
     _id,
     collegeName,
@@ -11,6 +28,35 @@ const MyCollegeCard = ({ item }) => {
     events,
     rating
   } = item;
+
+  const handleSubmit = () => {
+    console.log(Rating,Review)
+    fetch(`http://localhost:5000/review/${_id}`, {
+    method: "PATCH",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({ Review, Rating }),
+  })
+    .then((res) => res.json())
+    .then((data) => {
+      if (data.modifiedCount) {
+        Swal.fire({
+          position: "top-end",
+          icon: "success",
+          title: `Review and Rating Updated`,
+          showConfirmButton: false,
+          timer: 1500,
+        });
+
+        handleClose();
+        refetch();
+      }
+    })
+    .catch((error) => {
+      console.error("Error submitting Review:", error); 
+    });
+  };
   return (
     <div className="card mx-3 mb-5 bg-[#F0F7FF] shadow-2xl text-center">
       <figure className="img-fluid w-full">
@@ -31,7 +77,49 @@ const MyCollegeCard = ({ item }) => {
         </div>
         <div className="card-actions justify-center pt-2">
         
-          <Link to={`/coursedetail/${_id}`}><button className={"btn btn-primary text-white"}>View Details</button></Link>
+        <button
+            className="btn btn-outline btn-warning text-white w-full"
+            onClick={() => document.getElementById("my_modal_5").showModal()}
+          >
+            Review & Rating
+          </button>
+          <dialog
+            id="my_modal_5"
+            className="modal modal-bottom sm:modal-middle"
+          >
+            <form
+              onSubmit={handleSubmit}
+              method="dialog"
+              className="modal-box space-y-4"
+            >
+              <h3 className="font-bold text-3xl">Review & Rating</h3>
+              <input
+                  type="Number"
+                  placeholder="Rating"
+                  onChange={handleChangeRating}
+                  className="input input-bordered w-full"
+                />
+              <textarea
+                value={Review}
+                onChange={handleChange}
+                className="textarea textarea-primary w-full"
+                style={{ resize: "none" }}
+                placeholder="Give feedback"
+              ></textarea>
+              <div className="modal-action">
+                <button className="btn btn-success text-black btn-xs sm:btn-sm md:btn-md lg:btn-md">
+                  Submit
+                </button>
+                <button
+                  type="button"
+                  onClick={handleClose}
+                  className="btn btn-error text-white btn-xs sm:btn-sm md:btn-md lg:btn-md"
+                >
+                  Close
+                </button>
+              </div>
+            </form>
+          </dialog>
         </div>
       </div>
     </div>

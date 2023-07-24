@@ -10,6 +10,8 @@ import CourseDetails from "../Pages/Home/Courses/CourseDetailCard";
 import Profile from "../Pages/Profile/Profile";
 import Error from "../Pages/Shared/Error/Error";
 import AdmissionSelect from "../Pages/Admission/AdmissionSelect";
+import PrivateRoute from "./PrivateRoute";
+import UserDetails from "../Pages/Home/UserDetail/UserDetails";
 export const router = createBrowserRouter([
   {
     path: "/",
@@ -43,11 +45,16 @@ export const router = createBrowserRouter([
       },
       {
         path: "/myCollege",
-        element: <MyCollege />,
+        element: <PrivateRoute><MyCollege /></PrivateRoute>,
       },
       {
         path: "/profile",
         element: <Profile />,
+      },
+      {
+        path: "/user",
+        // element: <PrivateRoute><UserDetails /></PrivateRoute>,
+        element: <UserDetails />,
       },
       {
         path: "/coursedetail/:id",
