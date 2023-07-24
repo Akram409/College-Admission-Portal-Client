@@ -1,9 +1,8 @@
 import { Helmet } from "react-helmet-async";
 import { useForm } from "react-hook-form";
-import Swal from "sweetalert2";
+import { toast } from "react-toastify";
 import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../Providers/AuthProvider";
-import useAxiosSecure from "../../Hooks/useAxiosSecure";
 import { useParams } from "react-router-dom";
 
 const AdmissionSelect = () => {
@@ -23,9 +22,7 @@ const AdmissionSelect = () => {
       .then((data) => setItem(data));
   }, []);
 
-  const { _id, collegeName } = item;
-
-  const [axiosSecure] = useAxiosSecure();
+  const {collegeName } = item;
 
   const onSubmit = (data) => {
     data.candidateName = user?.displayName;
@@ -40,6 +37,7 @@ const AdmissionSelect = () => {
       img
     } = data;
     const newItem = {
+      ...item,
       candidateName,
       candidateEmail,
       phoneNumber,
