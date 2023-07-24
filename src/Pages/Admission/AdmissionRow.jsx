@@ -1,5 +1,8 @@
+import { Link } from "react-router-dom";
+
 const AdmissionRow = ({ item, index, refetch }) => {
     const {
+      _id,
         collegeName,
         admissionDate,
         events,
@@ -15,7 +18,7 @@ const AdmissionRow = ({ item, index, refetch }) => {
         rating,
       } = item;
   return (
-    <tr>
+    <tr className="text-center">
       <th>{index + 1}</th>
       <td>{collegeName}</td>
       <td>

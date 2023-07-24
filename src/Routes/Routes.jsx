@@ -9,6 +9,7 @@ import MyCollege from "../Pages/MyCollege/MyCollege";
 import CourseDetails from "../Pages/Home/Courses/CourseDetailCard";
 import Profile from "../Pages/Profile/Profile";
 import Error from "../Pages/Shared/Error/Error";
+import AdmissionSelect from "../Pages/Admission/AdmissionSelect";
 export const router = createBrowserRouter([
   {
     path: "/",
@@ -38,7 +39,7 @@ export const router = createBrowserRouter([
       },
       {
         path: "/admission/select/:id",
-        element: <Admission />,
+        element: <AdmissionSelect />,
       },
       {
         path: "/myCollege",
