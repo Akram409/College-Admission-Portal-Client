@@ -8,7 +8,7 @@ const useColleges = () => {
         queryKey: ['colleges'],
         // enabled: !loading && !!localStorage.getItem("access-token"),
         queryFn: async() => {
-            const res = await fetch('http://localhost:5000/colleges');
+            const res = await fetch('https://college-admission-server-cyan.vercel.app/colleges');
             return res.json();
         }
     })

@@ -7,7 +7,7 @@ const useCourses = () => {
     const {data: courses = [], isLoading: loadings, refetch} = useQuery({
         queryKey: ['courses'],
         queryFn: async() => {
-            const res = await fetch('http://localhost:5000/courses');
+            const res = await fetch('https://college-admission-server-cyan.vercel.app/courses');
             return res.json();
         }
     })

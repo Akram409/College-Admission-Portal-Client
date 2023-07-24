@@ -31,7 +31,7 @@ const MyCollegeCard = ({ item }) => {
 
   const handleSubmit = () => {
     console.log(Rating,Review)
-    fetch(`http://localhost:5000/review/${_id}`, {
+    fetch(`https://college-admission-server-cyan.vercel.app/review/${_id}`, {
     method: "PATCH",
     headers: {
       "Content-Type": "application/json",

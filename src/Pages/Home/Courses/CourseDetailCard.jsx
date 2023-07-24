@@ -9,7 +9,7 @@ const CourseDetailCard = () => {
   const [item, setItem] = useState([]);
   console.log(id)
   useEffect(() => {
-    fetch(`http://localhost:5000/coursedetail/${id}`)
+    fetch(`https://college-admission-server-cyan.vercel.app/coursedetail/${id}`)
       .then((res) => res.json())
       .then((data) => setItem(data));
   }, []);

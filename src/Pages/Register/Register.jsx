@@ -35,7 +35,7 @@ const Register = () => {
       updateUserProfile(data.name, data.photoURL)
         .then(() => {
           const saveUser = { name: data.name, email: data.email };
-          fetch("http://localhost:5000/users", {
+          fetch("https://college-admission-server-cyan.vercel.app/users", {
             method: "POST",
             headers: {
               "content-type": "application/json",
@@ -68,7 +68,7 @@ const Register = () => {
           name: user.displayName,
           email: user.email,
         };
-        fetch("http://localhost:5000/users", {
+        fetch("https://college-admission-server-cyan.vercel.app/users", {
           method: "POST",
           headers: {
           "content-type": "application/json",

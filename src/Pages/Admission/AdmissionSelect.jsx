@@ -17,7 +17,7 @@ const AdmissionSelect = () => {
   } = useForm();
 
   useEffect(() => {
-    fetch(`http://localhost:5000/coursedetail/${id}`)
+    fetch(`https://college-admission-server-cyan.vercel.app/coursedetail/${id}`)
       .then((res) => res.json())
       .then((data) => setItem(data));
   }, []);
@@ -49,7 +49,7 @@ const AdmissionSelect = () => {
       rating: 0,
       feedback: "",
     };
-    fetch("http://localhost:5000/addCollege", {
+    fetch("https://college-admission-server-cyan.vercel.app/addCollege", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

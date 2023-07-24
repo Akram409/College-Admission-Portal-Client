@@ -10,7 +10,7 @@ const ClientReview = () => {
   const [ratings, setRatings] = useState(0);
 
   useEffect(() => {
-    fetch("http://localhost:5000/reviewData")
+    fetch("https://college-admission-server-cyan.vercel.app/reviewData")
       .then((res) => res.json())
       .then((data) => setClient(data));
   }, []);
